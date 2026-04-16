@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,12 +152,32 @@
   .hero-actions {
     margin-top: 48px;
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 14px;
     align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
     opacity: 0;
     animation: fadeUp .8s .8s forwards;
+  }
+
+  .request-heading {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: .02em;
+  }
+
+  .request-arrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    color: var(--gold);
+    line-height: 1;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
   }
 
   .btn-primary {
@@ -173,6 +194,51 @@
 
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
 
+  .btn-underline {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .04em;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color .2s;
+  }
+
+  .btn-underline:hover { color: var(--gold-light); }
+
+  .contact-pill {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform .15s;
+  }
+
+  .contact-pill:hover { transform: translateY(-1px); }
+
+  .contact-pill .pill-label {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+
+  .contact-pill:hover .pill-label { background: var(--gold-light); }
+
+  .contact-pill .pill-value {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: .04em;
+  }
+
   .btn-ghost {
     color: rgba(247,245,240,0.7);
     font-size: 14px;
@@ -186,22 +252,14 @@
   .btn-ghost:hover { color: var(--white); border-color: var(--white); }
 
   .hero-number {
-    margin-top: 56px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
     opacity: 0;
     animation: fadeUp .8s 1s forwards;
   }
-
-  .hero-number a {
-    font-family: 'EB Garamond', serif;
-    font-size: 22px;
-    color: var(--white);
-    text-decoration: none;
-    letter-spacing: .06em;
-    opacity: .7;
-    transition: opacity .2s;
-  }
-
-  .hero-number a:hover { opacity: 1; }
 
   /* DIVIDER */
   .divider {
@@ -352,7 +410,7 @@
   .report-row-value {
     font-family: 'EB Garamond', serif;
     font-size: 15px;
-    color: var(--white);
+    color: var(--gold);
   }
 
   .report-row-value.alert {
@@ -388,6 +446,11 @@
     line-height: 1.75;
   }
 
+  .why-item.featured {
+    border-left: 4px solid var(--gold);
+    padding-left: 24px;
+  }
+
   /* CTA SECTION */
   .cta-section {
     padding: 120px 48px;
@@ -421,7 +484,7 @@
   .cta-section p {
     font-size: 16px;
     font-weight: 300;
-    color: rgba(247,245,240,0.55);
+    color: var(--white);
     max-width: 440px;
     margin: 0 auto 48px;
     line-height: 1.7;
@@ -437,11 +500,13 @@
   }
 
   .cta-contact a {
-    color: rgba(247,245,240,0.6);
-    font-size: 15px;
+    color: rgba(247,245,240,0.8);
+    font-size: 18px;
     text-decoration: none;
     transition: color .2s;
-    font-weight: 300;
+    font-weight: 400;
+    font-family: 'EB Garamond', serif;
+    letter-spacing: .04em;
   }
 
   .cta-contact a:hover { color: var(--white); }
@@ -506,15 +571,48 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">Plano · Collin County · DFW</div>
-  <h1>Your roof has a record.<br><em>We read it.</em></h1>
-  <p class="hero-sub">Most Plano homeowners don't know their roof's history. We do — and we'll show you what the records say about yours, and how it affects your insurance and property taxes.</p>
+  <div class="hero-badge">Plano · Frisco · McKinney · Allen · Prosper</div>
+  <h1>There's a story above your head.<br>Most homeowners <em>never read it.</em></h1>
+  <p class="hero-sub">Most homeowners don't know their roof's history. We'll sit down with you and show you what the records say about yours, and how it affects your property taxes, your home value, and your insurance.</p>
   <div class="hero-actions">
-    <a href="#contact" class="btn-primary">Request a free inspection</a>
-    <a href="#how" class="btn-ghost">See how it works</a>
+    <div class="request-heading">Request an inspection</div>
+    <div class="request-arrow">↓</div>
   </div>
   <div class="hero-number">
-    <a href="tel:4698549662">(469) 854-9662</a>
+    <a href="mailto:noahwomack@texasroofintelligence.com" class="contact-pill">
+      <span class="pill-label">Email me at</span>
+      <span class="pill-value">noahwomack@texasroofintelligence.com</span>
+    </a>
+    <a href="tel:4698549662" class="contact-pill">
+      <span class="pill-label">Text or call</span>
+      <span class="pill-value">(469) 854-9662</span>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="section-label">Why it matters</div>
+  <h2 class="section-title">Your roof has a record.<br><em>We read it.</em></h2>
+  <div class="why-grid">
+    <div class="why-item featured">
+      <h4 style="color: var(--gold);">Save on taxes</h4>
+      <p style="color: rgba(201,168,76,0.75);">A written inspection report documenting legitimate depreciation and deferred maintenance can support your Collin County appraisal protest and reduce your assessed value.</p>
+    </div>
+    <div class="why-item">
+      <h4>Resale value</h4>
+      <p>Undocumented roof damage is one of the first things a buyer's inspector finds — and one of the most common reasons deals fall apart at closing.</p>
+    </div>
+    <div class="why-item">
+      <h4>Insurance risk</h4>
+      <p>A roof in compromised condition is the most common reason a home fails an insurance inspection or loses coverage — often without warning.</p>
+    </div>
+    <div class="why-item">
+      <h4>Peace of mind</h4>
+      <p>If everything is fine, you'll know. If it's not, it's better to find out now than after a leak develops or a claim gets denied.</p>
+    </div>
   </div>
 </section>
 
@@ -527,21 +625,27 @@
   <div class="steps">
     <div class="step">
       <div class="step-num">01</div>
-      <h3>Public records research</h3>
-      <p>We pull permit history from the City of Plano and Collin County to find out whether a roof repair or replacement has ever been documented on your property.</p>
+      <h3>Records research</h3>
+      <p>We pull permit history to determine whether a roof repair or replacement has ever been documented on your property.</p>
     </div>
     <div class="step">
       <div class="step-num">02</div>
       <h3>Storm event analysis</h3>
-      <p>We cross-reference NOAA's official Storm Events Database to identify every documented hail event your property has experienced — including size and date.</p>
+      <p>We cross-reference NOAA's official storm records against your property's specific location to identify every documented hail event — including exact size and date.</p>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <h3>On-site inspection</h3>
-      <p>We show up, inspect the roof, and deliver a written report the same day. No obligation. No pressure. Just the facts about what's above your head.</p>
+      <p>We show up, inspect the roof, and deliver a written report the same day. No obligation. No pressure. Just the facts.</p>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- WHAT'S IN THE REPORT -->
+
+<div class="divider"></div>
 
 <div class="divider"></div>
 
@@ -552,19 +656,19 @@
       <div class="section-label">What you receive</div>
       <h2 class="section-title">A written report. Same day.</h2>
       <ul class="report-list">
-        <li>Complete permit history from public records</li>
+        <li style="color: var(--gold); font-weight: 500;">Useful for lowering your property taxes</li>
+        <li>Complete permit history</li>
         <li>Documented hail events with dates and sizes</li>
         <li>Assessed market value and financial exposure</li>
-        <li>Street-level roof replacement activity</li>
         <li>Written condition assessment you can keep</li>
-        <li>Useful for insurance claims and tax protests</li>
+        <li>Useful for insurance claims</li>
       </ul>
     </div>
     <div class="report-card">
       <div class="report-card-label">Sample property summary</div>
       <div class="report-row">
-        <span class="report-row-label">Roof permit on record</span>
-        <span class="report-row-value alert">None found</span>
+        <span class="report-row-label">Last roof permit pulled</span>
+        <span class="report-row-value alert">27 years ago</span>
       </div>
       <div class="report-row">
         <span class="report-row-label">Documented hail events</span>
@@ -576,11 +680,11 @@
       </div>
       <div class="report-row">
         <span class="report-row-label">Most recent hit</span>
-        <span class="report-row-value">September 2025</span>
+        <span class="report-row-value">September 21, 2025</span>
       </div>
       <div class="report-row">
         <span class="report-row-label">Assessed market value</span>
-        <span class="report-row-value">$1,865,512</span>
+        <span class="report-row-value">$1,300,000</span>
       </div>
       <div class="report-row">
         <span class="report-row-label">Est. roof age</span>
@@ -590,42 +694,15 @@
   </div>
 </div>
 
-<!-- WHY -->
-<section class="why-section">
-  <div class="section-label">Why it matters</div>
-  <h2 class="section-title">Most homeowners have no idea what's happened to their roof.</h2>
-  <div class="why-grid">
-    <div class="why-item">
-      <h4>Insurance risk</h4>
-      <p>A roof in compromised condition is the most common reason a home fails an insurance inspection or loses coverage — often without warning.</p>
-    </div>
-    <div class="why-item">
-      <h4>Resale value</h4>
-      <p>Undocumented roof damage is one of the first things a buyer's inspector finds — and one of the most common reasons deals fall apart at closing.</p>
-    </div>
-    <div class="why-item">
-      <h4>Tax protests</h4>
-      <p>A written inspection report documenting legitimate depreciation and deferred maintenance can support your Collin County appraisal protest.</p>
-    </div>
-    <div class="why-item">
-      <h4>Peace of mind</h4>
-      <p>If everything is fine, you'll know. If it's not, it's better to find out now than after a leak develops or a claim gets denied.</p>
-    </div>
-  </div>
-</section>
-
 <div class="divider"></div>
 
 <!-- CTA -->
 <section class="cta-section" id="contact">
-  <h2>The record on your property<br>is <em>too clear to ignore.</em></h2>
-  <p>Thirty minutes. Written report same day. No inspection fee for qualifying properties.</p>
-  <a href="tel:4698549662" class="btn-primary">Call or text (469) 854-9662</a>
-  <div class="cta-contact">
-    <a href="tel:4698549662">(469) 854-9662</a>
-    <span class="sep">·</span>
-    <a href="mailto:noahwomack097@gmail.com">noahwomack097@gmail.com</a>
-
+  <h2>The record on your property<br><em>is too clear to ignore.</em></h2>
+  <p>Thirty minutes. Written report same day.</p>
+  <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+    <a href="mailto:noahwomack@texasroofintelligence.com" class="btn-primary" style="min-width: 340px; text-align: center;">Email me at noahwomack@texasroofintelligence.com</a>
+    <a href="tel:4698549662" class="btn-primary" style="min-width: 340px; text-align: center;">Text or call (469) 854-9662</a>
   </div>
 </section>
 
