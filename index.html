@@ -224,7 +224,7 @@
   .step p { font-size: 14px; font-weight: 300; color: rgba(247,245,240,0.55); line-height: 1.7; }
 
   /* WHY */
-  .why-section { padding: 0; max-width: 100%; margin: 0 auto; }
+  .why-section { padding: 0; max-width: 100%; margin: 0 auto; scroll-margin-top: 72px; }
 
   .why-section-heading {
     font-family: 'EB Garamond', serif;
@@ -320,9 +320,9 @@
   /* REPORT */
   .report-section { padding: 100px 48px; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-  .report-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .report-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 
-  .report-list { list-style: none; margin-top: 40px; }
+  .report-list { list-style: none; margin-top: 24px; }
 
   .report-list li {
     padding: 18px 0;
@@ -593,7 +593,7 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .about-bio { font-size: 16px; font-weight: 300; color: rgba(247,245,240,0.65); line-height: 1.85; }
+  .about-bio { font-size: 15px; font-weight: 300; color: rgba(247,245,240,0.65); line-height: 1.85; }
 
   /* CTA */
   .cta-section { padding: 120px 48px; text-align: center; position: relative; overflow: hidden; }
@@ -768,28 +768,34 @@
 <div class="divider"></div>
 
 <!-- HAIL STAT -->
-<section class="future-section" id="hailstat">
-  <h2 class="section-title" style="font-style:normal;">The North Dallas Metroplex has recorded over 135 documented hail events.</h2>
-  <p class="future-gold-cta" style="font-size:clamp(20px,2.2vw,32px);">The largest on record reached 4.5" — nearly twice the size of a baseball.</p>
+<section class="future-section" id="hailstat" style="gap:4px; max-width:1100px;">
+  <h2 class="section-title" style="font-style:normal; font-size:clamp(20px,2vw,32px); color:var(--white); margin:0;">The North Dallas Metroplex has recorded<br>over 135 documented hail events.</h2>
+  <p class="future-gold-cta" style="font-size:clamp(18px,1.8vw,28px);">The largest on record reached 4.5" —<br>nearly twice the size of a baseball.</p>
 </section>
 
 <div class="divider"></div>
 
 <!-- FUTURE PACING -->
 <section class="future-section" id="future">
-  <h2 class="section-title" style="font-style:normal; margin:0;">Most homeowners spend years hoping everything is fine.</h2>
-  <a href="#contact" class="future-gold-cta">Schedule your free roof inspection<br>and you'll know for certain.</a>
+  <h2 class="section-title" style="font-style:normal; margin:0; font-size:clamp(20px,2vw,32px);">Most homeowners spend years<br>hoping everything is fine.</h2>
+  <a href="#contact" class="future-gold-cta" style="font-size:clamp(18px,1.8vw,28px);">Schedule your free roof inspection<br>and you'll know for certain.</a>
 </section>
 
 <div class="divider"></div>
 
 <!-- WHAT YOU RECEIVE -->
 <div class="report-section">
+
+  <!-- Centered heading -->
+  <div style="text-align:center; margin-bottom:64px; max-width:1100px; margin-left:auto; margin-right:auto;">
+    <h2 class="section-title" style="max-width:100%; text-align:center;">A written report.<br><em>Yours to keep.</em></h2>
+  </div>
+
+  <!-- Side by side: bullets + card -->
   <div class="report-inner">
     <div>
       <div class="section-label">What you receive</div>
-      <h2 class="section-title">A written report.<br><em>Yours to keep.</em></h2>
-      <ul class="report-list">
+      <ul class="report-list" style="margin-top:24px;">
         <li>Complete permit history</li>
         <li>Roof history</li>
         <li>Documented number of hail storms</li>
@@ -798,7 +804,7 @@
       </ul>
     </div>
     <div class="report-card">
-      <div class="report-card-label">Sample property summary</div>
+      <div class="report-card-label" style="color:var(--gold);">Sample property</div>
       <div class="report-row">
         <span class="report-row-label">Last roof permit pulled</span>
         <span class="report-row-value">27 years ago</span>
@@ -821,6 +827,29 @@
       </div>
     </div>
   </div>
+
+  <!-- How it works below -->
+  <div style="max-width:1100px; margin: 64px auto 0;">
+    <div class="section-label">How it works</div>
+    <div style="margin-top:32px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px;">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Records research</h3>
+        <p>We pull permit history to determine whether a roof repair or replacement has ever been documented on your property.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Storm event analysis</h3>
+        <p>We cross-reference NOAA and other trusted meteorological sources to identify every documented hail event near your property — including exact size and date.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>On-site inspection</h3>
+        <p>We show up, inspect the roof, and deliver a written report. Just the facts about what's above your head.</p>
+      </div>
+    </div>
+  </div>
+
   <div style="text-align:center; margin-top: 64px;">
     <a href="#contact" class="future-cta">See your free report here</a>
   </div>
@@ -828,40 +857,9 @@
 
 <div class="divider"></div>
 
-<!-- HOW IT WORKS + FAQ -->
+<!-- FAQ ONLY -->
 <section class="how-faq-section" id="how">
-  <div class="how-faq-grid">
-
-    <!-- LEFT: How it works -->
-    <div class="how-col">
-      <div class="section-label">How it works</div>
-      <h2 class="section-title" style="font-size:clamp(28px,3vw,42px);">Data you didn't know existed.<br>About your own home.</h2>
-      <div class="how-steps">
-        <div class="how-step">
-          <div class="how-step-num">01</div>
-          <div>
-            <h3 class="how-step-title">Records research</h3>
-            <p class="how-step-text">We pull permit history to determine whether a roof repair or replacement has ever been documented on your property.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">02</div>
-          <div>
-            <h3 class="how-step-title">Storm event analysis</h3>
-            <p class="how-step-text">We cross-reference NOAA and other trusted meteorological sources to identify every documented hail event near your property — including exact size and date.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">03</div>
-          <div>
-            <h3 class="how-step-title">On-site inspection</h3>
-            <p class="how-step-text">We show up, inspect the roof, and deliver a written report. Just the facts about what's above your head.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT: Common Concerns + Common Questions -->
+  <div style="max-width:900px; margin:0 auto;">
     <div class="faq-col">
 
       <div class="section-label">Common concerns</div>
@@ -882,11 +880,6 @@
           <p class="faq-a">Everything goes in writing and we document the entire process with photos for you to look at. We will also show you the removed shingles and especially the removed felt — as that is the most important part. You're welcome to pull up a lawn chair and watch, though I wouldn't recommend it. The AC is a lot more comfortable.</p>
         </div>
 
-        <div class="faq-item">
-          <h3 class="faq-q">How can I afford a roof if it needs to be replaced?</h3>
-          <p class="faq-a">There are several ways to pay for a roof — cash, financing, and insurance. The most common in North Texas is through insurance, where you pay your deductible and the difference is handled for you.</p>
-        </div>
-
       </div>
 
       <div class="section-label" style="margin-top:48px;">Common questions</div>
@@ -899,18 +892,17 @@
 
         <div class="faq-item">
           <h3 class="faq-q">How long does it take?</h3>
-          <p class="faq-a">Most inspections are completed within 30 to 45 minutes depending on the size of your roof.</p>
+          <p class="faq-a">Most inspections are completed within 10 to 20 minutes depending on the size of your roof.</p>
         </div>
 
         <div class="faq-item">
           <h3 class="faq-q">What happens after the inspection?</h3>
-          <p class="faq-a">You receive a written report with everything we found. What you do with it is entirely up to you.</p>
+          <p class="faq-a">After the inspection you receive a written report of your roof's condition so you can make an informed next decision.</p>
         </div>
 
       </div>
 
     </div>
-
   </div>
 </section>
 
@@ -919,7 +911,6 @@
 <!-- ABOUT US -->
 <section class="about-section" id="about">
   <div class="section-label">About us</div>
-  <h2 class="section-title">Real people.<br><em>Your neighborhood.</em></h2>
   <div class="about-card">
     <div class="about-photo"><img src="noah.jpg" alt="Noah Womack" style="width:100%; height:100%; object-fit:cover; object-position:top;"></div>
     <div>
@@ -932,15 +923,6 @@
       <p class="about-bio" style="margin-top:8px;">— Noah Womack, Founder</p>
     </div>
   </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- OUR LEGACY -->
-<section class="section" id="legacy">
-  <div class="section-label">Our Legacy</div>
-  <h2 class="section-title">Built on honesty.<br><em>Proven by data.</em></h2>
-  <p style="font-size:16px; font-weight:300; color:rgba(247,245,240,0.55); line-height:1.8; max-width:560px;">The story of Texas Roof Intelligence is coming soon. Check back here to learn about how this company was built, what drives it, and why we believe every homeowner in Collin County deserves to know the truth about what's above their head.</p>
 </section>
 
 <div class="divider"></div>
