@@ -51,6 +51,7 @@
     letter-spacing: .04em;
     color: var(--white);
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .nav-logo span { color: var(--gold); }
@@ -287,6 +288,7 @@
     color: rgba(247,245,240,0.6);
     line-height: 1.85;
   }
+
   /* REPORT */
   .report-section { padding: 100px 48px; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
@@ -314,50 +316,6 @@
   .report-row:last-child { border-bottom: none; }
   .report-row-label { color: var(--gray); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; }
   .report-row-value { font-family: 'EB Garamond', serif; font-size: 15px; color: var(--white); }
-
-  /* COLLAPSE PHOTO */
-  .collapse-section {
-    position: relative;
-    width: 100%;
-    height: 560px;
-    overflow: hidden;
-  }
-
-  .collapse-placeholder {
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,0.03);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(247,245,240,0.2);
-    font-size: 13px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .collapse-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(15,30,60,0.85) 0%, rgba(15,30,60,0.2) 60%, transparent 100%);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 60px;
-  }
-
-  .collapse-text {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(28px, 4vw, 52px);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--white);
-    letter-spacing: .01em;
-    text-align: center;
-  }
 
   /* FUTURE PACING */
   .future-section {
@@ -429,25 +387,6 @@
 
   .future-gold-cta:hover { color: var(--gold-light); }
 
-  /* IMAGE SECTION */
-  .image-section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; text-align: center; }
-
-  .image-placeholder {
-    width: 100%;
-    aspect-ratio: 16/7;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 48px;
-    color: rgba(247,245,240,0.2);
-    font-size: 13px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
   /* HOW IT WORKS + FAQ */
   .how-faq-section { padding: 100px 48px; }
 
@@ -513,11 +452,6 @@
     font-weight: 300;
     color: rgba(247,245,240,0.6);
     line-height: 1.8;
-  }
-
-  @media (max-width: 768px) {
-    .how-faq-grid { grid-template-columns: 1fr; gap: 48px; }
-    .how-faq-section { padding: 72px 24px; }
   }
 
   /* ABOUT */
@@ -610,36 +544,134 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
-
   /* MOBILE BOTTOM NAV */
   .mobile-bottom-nav { display: none; }
 
-  /* RESPONSIVE */
+  /* Mobile-only elements */
+  .mobile-br { display: none; }
+  .mobile-cta-before-how { display: none; }
+
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
+
+    /* NAV */
+    nav {
+      padding: 0 16px;
+      height: 64px;
+    }
+
     .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    .section { padding: 72px 24px; }
-    .why-section { padding: 72px 0; }
+
+    .nav-logo {
+      font-size: 15px;
+    }
+
+    .nav-cta { display: none; }
+
+    /* HERO — kill dead space */
+    .hero {
+      min-height: auto;
+      padding: 120px 24px 40px;
+      justify-content: flex-start;
+    }
+
+    /* DIVIDER */
+    .divider { margin: 0 24px; }
+
+    /* WHY SECTION */
+    .why-section { padding: 24px 0 0; }
     .why-section .section-label { padding: 0 24px; }
     .why-split { padding: 0 24px; }
-    .why-step { grid-template-columns: 48px 1fr; gap: 20px; padding: 36px 0; }
-    .report-section { padding: 72px 24px; }
-    .report-inner { grid-template-columns: 1fr; gap: 48px; }
-    .image-section { padding: 72px 24px; }
-    .about-section { padding: 72px 24px; }
-    .about-card { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; }
-    .about-photo { max-width: 200px; aspect-ratio: 1; }
-    .cta-section { padding: 80px 24px; }
-    footer { padding: 32px 24px; }
-    .divider { margin: 0 24px; }
-    .hero-why-btn { font-size: 18px; padding: 14px 32px; }
+    .why-step {
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      padding: 36px 0;
+    }
+    .why-step-num { font-size: 40px; }
+    .why-step:last-child { border-bottom: none; padding-bottom: 16px; }
+
+    /* Step titles: base sizes */
+    .why-step-title { font-size: 17px; line-height: 1.3; }
+    .why-step-title span { font-size: 20px; }
+
+    /* Step 1 — white 32px dominates, gold 22px beneath */
+    .why-step:first-child .why-step-title { font-size: 32px; line-height: 1.2; }
+    .why-step:first-child .why-step-title span { font-size: 22px; }
+
+    /* Steps 2 & 3 — gold 32px dominates, white 22px */
+    .why-step:nth-child(2) .why-step-title,
+    .why-step:nth-child(3) .why-step-title { font-size: 22px; line-height: 1.2; }
+    .why-step:nth-child(2) .why-step-title span,
+    .why-step:nth-child(3) .why-step-title span { font-size: 32px; }
+
+    /* HAIL + FUTURE PACING */
+    .future-section { padding: 56px 24px; }
+    .future-gold-cta { font-size: clamp(20px, 5vw, 28px); }
+
+    /* REPORT */
+    .report-section { padding: 64px 24px; }
+    .report-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .report-card { padding: 28px 20px; }
+
+    /* HOW IT WORKS — 3-col compact on mobile */
+    .how-it-works-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr !important;
+      gap: 2px;
+    }
+    .how-it-works-grid .step { padding: 20px 12px; }
+    .how-it-works-grid .step-num { font-size: 28px; margin-bottom: 8px; }
+    .how-it-works-grid .step h3 { font-size: 11px; margin-bottom: 6px; }
+    .how-it-works-grid .step p { font-size: 10px; line-height: 1.6; }
+
+    /* FAQ */
+    .how-faq-section { padding: 48px 24px 24px; }
+    .how-faq-grid { grid-template-columns: 1fr; gap: 48px; }
+
+    /* ABOUT */
+    .about-section { padding: 64px 24px; }
+    .about-card {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 28px 20px;
+    }
+    .about-card .about-photo {
+      order: 2;
+      max-width: 180px;
+      aspect-ratio: 3/4;
+    }
+    .about-card > div { order: 1; }
+    .about-name { font-size: 28px; }
+
+    /* CTA */
+    .cta-section { padding: 48px 24px; }
+    .cta-section h2 { font-size: clamp(28px, 7vw, 40px); }
+    .btn-primary {
+      min-width: 0 !important;
+      width: 100%;
+      font-size: 14px;
+      padding: 16px 20px;
+      word-break: break-all;
+    }
+
+    /* FOOTER */
+    footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+
+    /* SECTION */
+    .section { padding: 64px 24px; }
+
+    /* BODY PADDING for mobile bottom nav */
     body { padding-bottom: 72px; }
 
+    /* Mobile-only elements */
+    .mobile-br { display: inline; }
+    .mobile-cta-before-how { display: block; text-align: center; margin-top: 32px; }
+
+    /* MOBILE BOTTOM NAV */
     .mobile-bottom-nav {
       display: flex;
       position: fixed;
@@ -693,14 +725,12 @@
 <!-- WHY IT MATTERS -->
 <section class="why-section" id="why">
   <div class="why-split">
-
-    <!-- Steps (full-width, photo removed — to be added when Noah captures one on inspection) -->
     <div class="why-steps">
 
       <div class="why-step">
         <div class="why-step-num">01</div>
         <div class="why-step-content">
-          <h3 class="why-step-title">Your roof does not keep water out.<br><span style="color:var(--gold); font-style:italic;">Only the felt beneath it keeps water out.</span></h3>
+          <h3 class="why-step-title">Your roof does not keep water out of your home.<br><span style="color:var(--gold); font-style:italic;">Only the felt beneath it keeps water out.</span></h3>
           <p class="why-step-text">Most homeowners assume the shingles on top of their roof are what keep water out. They are not. Beneath every roof is a layer of waterproof felt — and that felt is the only thing standing between your home and water damage. The shingles exist for one reason only: to protect the felt underneath.</p>
         </div>
       </div>
@@ -708,7 +738,7 @@
       <div class="why-step">
         <div class="why-step-num">02</div>
         <div class="why-step-content">
-          <h3 class="why-step-title">Without strong protection above.<br><span style="color:var(--gold); font-style:italic;">The felt will rip and tear apart and let water inside.</span></h3>
+          <h3 class="why-step-title">Without strong protection above the felt.<br><span style="color:var(--gold); font-style:italic;">The felt will rip and tear apart letting water inside your home.</span></h3>
           <p class="why-step-text">Waterproof felt is highly effective when it's intact. But it is not built to survive on its own. Hail punches through it. UV sunlight degrades it. Wind tears it. Without thick, healthy shingles absorbing those forces above it, the felt breaks down — and once it does, water moves straight into your home.</p>
         </div>
       </div>
@@ -717,7 +747,7 @@
         <div class="why-step-num">03</div>
         <div class="why-step-content">
           <h3 class="why-step-title">Your roof looks perfectly fine.<br><span style="color:var(--gold); font-style:italic;">But it stopped protecting your home from water damage years ago.</span></h3>
-          <p class="why-step-text">Shingles rarely fall off or visibly break. They simply wear down over time and grow incredibly thin — losing the protective elements that shield the waterproof felt from hail, UV sunlight, and wind. From the outside, everything looks normal. Most homeowners only find out when it's too late and water damage has already happened.</p>
+          <p class="why-step-text">Shingles rarely fall off or visibly break. They simply wear down over time and grow incredibly thin — losing the protective elements that shield the waterproof felt from hail, UV sunlight, and wind. From the outside, everything looks normal. Most homeowners only find out when it's too late and water damage has already occurred.</p>
         </div>
       </div>
 
@@ -729,29 +759,22 @@
 
 <!-- HAIL STAT -->
 <section class="future-section" id="hailstat" style="gap:4px; max-width:1100px;">
-  <h2 class="section-title" style="font-style:normal; font-size:clamp(20px,2vw,32px); color:var(--white); margin:0;">The North Dallas Metroplex has recorded<br>over 135 documented hail events.</h2>
-  <p class="future-gold-cta" style="font-size:clamp(18px,1.8vw,28px);">The largest on record reached 4.5" —<br>nearly twice the size of a baseball.</p>
-</section>
-
-<div class="divider"></div>
-
-<!-- FUTURE PACING -->
-<section class="future-section" id="future">
-  <h2 class="section-title" style="font-style:normal; margin:0; font-size:clamp(20px,2vw,32px);">Most homeowners spend years<br>hoping everything is fine.</h2>
-  <a href="#contact" class="future-gold-cta" style="font-size:clamp(18px,1.8vw,28px);">Schedule your free roof inspection<br>and you'll know for certain.</a>
+  <h2 class="section-title" style="font-style:normal; font-size:15px; font-weight:300; color:rgba(247,245,240,0.6); margin:0; line-height:1.7;">Since 1995, the North Dallas area has experienced nearly<strong style="display:block; font-size:clamp(36px,5vw,64px); font-weight:700; color:var(--white); line-height:1.1; margin: 8px 0;">$5 billion</strong>in hail damage alone…</h2>
+  <p class="future-gold-cta" style="font-size:clamp(18px,1.8vw,28px);">Do you know how old your roof is?—</p>
+  <p style="font-size:14px; font-weight:300; color:var(--white); margin-top:8px; font-style:italic; line-height:1.7;">Most homeowners spend years hoping everything is fine — never knowing.</p>
+  <a href="#contact" class="future-gold-cta" style="font-size:clamp(18px,1.8vw,28px); margin-top:8px; display:inline-block;">Schedule your free roof inspection<br>and you'll know for certain.</a>
+  <a href="#report" style="font-family:'EB Garamond',serif; font-size:clamp(15px,1.4vw,20px); font-style:italic; color:var(--white); margin-top:16px; display:inline-block; letter-spacing:.02em; opacity:0.75;">Here's what you'll get ↓</a>
 </section>
 
 <div class="divider"></div>
 
 <!-- WHAT YOU RECEIVE -->
-<div class="report-section">
+<div class="report-section" id="report">
 
-  <!-- Centered heading -->
   <div style="text-align:center; margin-bottom:64px; max-width:1100px; margin-left:auto; margin-right:auto;">
     <h2 class="section-title" style="max-width:100%; text-align:center;">A written report.<br><em>Yours to keep.</em></h2>
   </div>
 
-  <!-- Side by side: bullets + card -->
   <div class="report-inner">
     <div>
       <div class="section-label">What you receive</div>
@@ -788,10 +811,12 @@
     </div>
   </div>
 
-  <!-- How it works below -->
-  <div style="max-width:1100px; margin: 64px auto 0;">
-    <div class="section-label">How it works</div>
-    <div style="margin-top:32px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px;">
+    <div style="max-width:1100px; margin: 64px auto 0;">
+    <div style="margin-bottom:32px;">
+      <div class="section-label">How it works</div>
+      <h3 style="font-family:'EB Garamond',serif; font-size:clamp(22px,2.4vw,36px); font-weight:400; color:var(--white); margin-top:10px; line-height:1.2;">Here's how it works.</h3>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px;" class="how-it-works-grid">
       <div class="step">
         <div class="step-num">01</div>
         <h3>Records research</h3>
@@ -811,13 +836,16 @@
   </div>
 
   <div style="text-align:center; margin-top: 64px;">
-    <a href="#contact" class="future-cta">See your free report here</a>
+    <p style="font-size:13px; font-style:italic; color:rgba(247,245,240,0.6); margin-bottom:16px; line-height:1.7;">No pressure. No obligation. No scare tactics.<br>Just the facts about what's above your head.</p>
+    <a href="#contact" class="future-cta">Yes, send me my free roof report</a>
   </div>
 </div>
 
 <div class="divider"></div>
 
-<!-- FAQ ONLY -->
+<div class="divider"></div>
+
+<!-- FAQ -->
 <section class="how-faq-section" id="how">
   <div style="max-width:900px; margin:0 auto;">
     <div class="faq-col">
@@ -826,7 +854,7 @@
       <div class="faq-list">
 
         <div class="faq-item">
-          <h3 class="faq-q">Is the report really free?</h3>
+          <h3 class="faq-q">Is the report and inspection completely free?</h3>
           <p class="faq-a">Yes — completely. No hidden fees, no surprise charges. You get the full written report at no cost, regardless of whether you choose to work with us or not. It's yours to keep.</p>
         </div>
 
@@ -836,8 +864,13 @@
         </div>
 
         <div class="faq-item">
+          <h3 class="faq-q">What materials do you use and what is your quality standard?</h3>
+          <p class="faq-a">Every roof we install is built with materials rated to withstand the conditions North Texas actually delivers — not the minimum required to pass inspection. We don't cut corners on what goes above your head. We use architectural shingles rated for impact, synthetic underlayment, ice and water shield at all vulnerable points, proper drip edge and flashing sealed to code, and ridge cap shingles — not shortcuts. We typically recommend Atlas or Malarkey for their build quality, strength, and broad color selection. If you have something else in mind, let us know and we'll walk you through your options.</p>
+        </div>
+
+        <div class="faq-item">
           <h3 class="faq-q">How do I know I'm not being ripped off or tricked?</h3>
-          <p class="faq-a">Everything goes in writing and we document the entire process with photos for you to look at. We will also show you the removed shingles and especially the removed felt — as that is the most important part. You're welcome to pull up a lawn chair and watch, though I wouldn't recommend it. The AC is a lot more comfortable.</p>
+          <p class="faq-a">We can document the entire process with photos for you.</p>
         </div>
 
       </div>
@@ -846,12 +879,12 @@
       <div class="faq-list">
 
         <div class="faq-item">
-          <h3 class="faq-q">Do I need to be home?</h3>
+          <h3 class="faq-q">Do I need to be home for an inspection?</h3>
           <p class="faq-a">No. As long as we have access to the exterior of your property, we can complete the inspection without you present.</p>
         </div>
 
         <div class="faq-item">
-          <h3 class="faq-q">How long does it take?</h3>
+          <h3 class="faq-q">How long does an inspection take?</h3>
           <p class="faq-a">Most inspections are completed within 10 to 20 minutes depending on the size of your roof.</p>
         </div>
 
@@ -860,27 +893,23 @@
           <p class="faq-a">After the inspection you receive a written report of your roof's condition so you can make an informed next decision.</p>
         </div>
 
+        <div class="faq-item">
+          <h3 class="faq-q">How long does it take to install a roof?</h3>
+          <p class="faq-a">90% of the time we complete a full roof in a single day. Depending on the size, slope, temperature, or weather, it may run into a second day — but that's the exception, not the rule.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">Will you clean up my yard and driveway?</h3>
+          <p class="faq-a">Yes — always. We do a full magnetic nail sweep, remove all debris, and walk the property before we leave. Your yard and driveway will be clean when we're done.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">Will I still be able to contact you after my roof is completed?</h3>
+          <p class="faq-a">Absolutely. We will never leave you in the dark. If something comes up after the job is done, you reach out and we respond. That's not a maybe — that's how we operate.</p>
+        </div>
+
       </div>
 
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ABOUT US -->
-<section class="about-section" id="about">
-  <div class="section-label">About us</div>
-  <div class="about-card">
-    <div class="about-photo"><img src="noah.jpg" alt="Noah Womack" style="width:100%; height:100%; object-fit:cover; object-position:top;"></div>
-    <div>
-      <div class="about-name">Noah Womack</div>
-      <div class="about-title">Founder & Operator</div>
-      <p class="about-bio">I grew up moving around a lot — Austin, Phoenix, San Antonio — before landing in McKinney at 17. This is home.</p>
-      <p class="about-bio" style="margin-top:16px;">I started Texas Roof Intelligence because I kept seeing homeowners being taken advantage of and financially exploited by people who have given this industry a bad name. One day I had a thought — every roof I work on is one less family that gets exploited. One less family that has to worry about the biggest financial investment of their life. One less family that has to worry about the home where memories more precious than time itself are first formed.</p>
-      <p class="about-bio" style="margin-top:16px;">That's what drives me. I live to work — not the other way around.</p>
-      <p class="about-bio" style="margin-top:16px; color:rgba(247,245,240,0.5); font-style:italic;">No apologies. No regrets.</p>
-      <p class="about-bio" style="margin-top:8px;">— Noah Womack, Founder</p>
     </div>
   </div>
 </section>
@@ -894,7 +923,7 @@
   <p style="color:rgba(247,245,240,0.5); font-size:15px; margin-top:6px;">No obligation. No pressure. Just the facts about what's above your head.</p>
   <div style="display:flex; flex-direction:column; gap:10px; align-items:center; margin-top:24px;">
     <a href="tel:4698549662" class="btn-primary" style="min-width:340px; text-align:center;">Text or call (469) 854-9662</a>
-    <a href="mailto:noahwomack@texasroofintelligence.com" class="btn-primary" style="min-width:340px; text-align:center;">Email me at noahwomack@texasroofintelligence.com</a>
+    <a href="mailto:noahwomack@texasroofintelligence.com" class="btn-primary" style="min-width:340px; text-align:center;">Email me at<br class="mobile-br"> noahwomack@texasroofintelligence.com</a>
   </div>
 </section>
 
@@ -904,6 +933,12 @@
   <div class="footer-copy">© 2026 Texas Roof Intelligence · texasroofintelligence.com</div>
 </footer>
 
+<!-- MOBILE BOTTOM NAV -->
+<div class="mobile-bottom-nav">
+  <a href="#contact">Contact Us</a>
+  <a href="tel:4698549662">Free Roof Inspection</a>
+  <a href="#report">Free Roof Report</a>
+</div>
 
 </body>
 </html>
