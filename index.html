@@ -35,7 +35,7 @@
     top: 0; left: 0; right: 0;
     z-index: 100;
     padding: 0 48px;
-    height: 72px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -78,17 +78,75 @@
   .nav-cta {
     background: var(--gold);
     color: var(--navy);
-    padding: 14px 36px;
-    border-radius: 2px;
-    font-size: 16px;
+    padding: 14px 28px;
+    border-radius: 0;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: .04em;
     text-decoration: none;
     transition: background .2s;
     white-space: nowrap;
+    text-align: center;
+    line-height: 1.3;
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   .nav-cta:hover { background: var(--gold-light); }
+
+  .nav-contact {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-decoration: none;
+    transition: background .2s;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.3;
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .nav-contact:hover { background: var(--gold-light); }
+
+  .nav-why {
+    background: var(--white);
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+    white-space: nowrap;
+    line-height: 1.3;
+    text-align: center;
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .nav-why:hover { background: #ffffff; transform: translateY(-1px); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    align-self: flex-end;
+  }
 
   /* HERO */
   .hero {
@@ -138,11 +196,12 @@
     background: var(--gold);
     text-decoration: none;
     padding: 18px 52px;
-    border-radius: 2px;
+    border-radius: 0;
     opacity: 0;
     animation: fadeUp .8s .4s forwards;
     transition: background .2s;
     letter-spacing: .04em;
+    text-align: center;
   }
 
   .hero-why-btn:hover { background: var(--gold-light); }
@@ -370,6 +429,7 @@
     padding: 16px 40px;
     text-decoration: none;
     transition: background .2s;
+    text-align: center;
   }
 
   .future-cta:hover { background: rgba(247,245,240,0.85); }
@@ -521,10 +581,12 @@
     font-size: 14px;
     font-weight: 500;
     letter-spacing: .04em;
-    border-radius: 2px;
+    border-radius: 0;
     text-decoration: none;
     display: inline-block;
     transition: background .2s, transform .15s;
+    text-align: center;
+    line-height: 1.4;
   }
 
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
@@ -567,6 +629,27 @@
     }
 
     .nav-cta { display: none; }
+    .nav-contact { display: none; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      align-self: center;
+    }
+
+    /* Show why button in top nav on mobile, smaller and tighter */
+    .nav-why {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      font-size: 11px;
+      line-height: 1.2;
+      margin-right: 0;
+      max-width: 130px;
+      white-space: normal;
+      min-height: 0;
+    }
 
     /* HERO — kill dead space */
     .hero {
@@ -689,21 +772,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 4px;
+      padding: 14px 8px;
       text-decoration: none;
       background: var(--gold);
       color: var(--navy);
       font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
+      font-size: 13px;
       font-weight: 500;
       letter-spacing: .03em;
       text-align: center;
-      line-height: 1.3;
-      border-radius: 2px;
+      line-height: 1.35;
+      border-radius: 0;
       transition: background .15s;
     }
 
     .mobile-bottom-nav a:hover { background: var(--gold-light); }
+
+    .mobile-bottom-nav a.nav-why-mobile {
+      background: var(--white);
+    }
+
+    .mobile-bottom-nav a.nav-why-mobile:hover {
+      background: #ffffff;
+    }
   }
 </style>
 </head>
@@ -712,14 +803,18 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Texas Roof <span>Intelligence</span></a>
-  <a href="#contact" class="nav-cta">Schedule your free roof inspection</a>
+  <div class="nav-actions">
+    <a href="#contact" class="nav-contact">To contact us<br>click here</a>
+    <a href="#contact" class="nav-cta">To schedule your<br>free roof inspection<br>click here</a>
+    <a href="#how" class="nav-why">Why work with us<br>or trust us?<br>Click here</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <h1>"But my roof looks fine"<br><em>— that's exactly the problem.</em></h1>
   <p class="hero-damage">The damage is invisible from the outside.<br><em>Devastating from the inside.</em></p>
-  <a href="#why" class="hero-why-btn">Here's why ↓</a>
+  <a href="#why" class="hero-why-btn">To learn why click here ↓</a>
 </section>
 
 <!-- WHY IT MATTERS -->
@@ -762,8 +857,7 @@
   <h2 class="section-title" style="font-style:normal; font-size:15px; font-weight:300; color:rgba(247,245,240,0.6); margin:0; line-height:1.7;">Since 1995, the North Dallas area has experienced nearly<strong style="display:block; font-size:clamp(36px,5vw,64px); font-weight:700; color:var(--white); line-height:1.1; margin: 8px 0;">$5 billion</strong>in hail damage alone…</h2>
   <p class="future-gold-cta" style="font-size:clamp(18px,1.8vw,28px);">Do you know how old your roof is?—</p>
   <p style="font-size:14px; font-weight:300; color:var(--white); margin-top:8px; font-style:italic; line-height:1.7;">Most homeowners spend years hoping everything is fine — never knowing.</p>
-  <a href="#contact" class="future-gold-cta" style="font-size:clamp(18px,1.8vw,28px); margin-top:8px; display:inline-block;">Schedule your free roof inspection<br>and you'll know for certain.</a>
-  <a href="#report" style="font-family:'EB Garamond',serif; font-size:clamp(15px,1.4vw,20px); font-style:italic; color:var(--white); margin-top:16px; display:inline-block; letter-spacing:.02em; opacity:0.75;">Here's what you'll get ↓</a>
+  <p style="font-size:clamp(18px,1.8vw,28px); margin-top:8px; line-height:1.5;"><a href="#contact" class="future-gold-cta">Schedule your free roof inspection and you'll know for certain.</a> <a href="#report" style="font-family:'EB Garamond',serif; font-style:italic; color:var(--white); letter-spacing:.02em; opacity:0.75; text-decoration:none; font-size:clamp(15px,1.4vw,20px);">Here's what you'll get ↓</a></p>
 </section>
 
 <div class="divider"></div>
@@ -830,14 +924,14 @@
       <div class="step">
         <div class="step-num">03</div>
         <h3>On-site inspection</h3>
-        <p>We show up, inspect the roof, and deliver a written report. Just the facts about what's above your head.</p>
+        <p>We inspect every visible surface of your roof, document our findings with photos, and deliver a written report you can keep. Just the facts about what's above your head.</p>
       </div>
     </div>
   </div>
 
   <div style="text-align:center; margin-top: 64px;">
-    <p style="font-size:13px; font-style:italic; color:rgba(247,245,240,0.6); margin-bottom:16px; line-height:1.7;">No pressure. No obligation. No scare tactics.<br>Just the facts about what's above your head.</p>
-    <a href="#contact" class="future-cta">Yes, send me my free roof report</a>
+    <p style="font-size:13px; font-style:italic; color:rgba(247,245,240,0.6); margin-bottom:16px; line-height:1.7;">No pressure. No obligation.<br>Just the facts about what's above your head.</p>
+    <a href="#contact" class="future-cta">Yes, send me my free roof report — click here</a>
   </div>
 </div>
 
@@ -855,22 +949,22 @@
 
         <div class="faq-item">
           <h3 class="faq-q">Is the report and inspection completely free?</h3>
-          <p class="faq-a">Yes — completely. No hidden fees, no surprise charges. You get the full written report at no cost, regardless of whether you choose to work with us or not. It's yours to keep.</p>
+          <p class="faq-a">Yes — completely free. Both the inspection and the report are 100% free. No hidden fees, no built-in costs, no pre-payment. You don't pay us a dime for either, and even if you choose not to work with us, you still keep both at no cost.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">Why should I work with you or trust you?</h3>
+          <p class="faq-a">Well, maybe you shouldn't. Personally, if a roofer showed up to my home, performed an inspection, and afterward I didn't trust them or thought they were lying to me, I certainly wouldn't let them replace my roof — and I hope you wouldn't either. Here's what I'd want to see before I trusted a roofer with my home: photos documenting everything they find, a written report I can keep regardless of what I decide, materials rated for what the weather actually delivers, and someone who will shoot me straight and tell me "your roof is fine and you don't need anything" if that's the truth of the matter. That's how we work. If after seeing all that, you decide we're not the right fit, that's your decision and it's no hard feelings. Ultimately I just want your home taken care of the way you deserve. If you'd like to see what's actually going on up there, schedule a free inspection — 20 minutes, no obligation, no pressure, and you'll know exactly where your roof stands.</p>
         </div>
 
         <div class="faq-item">
           <h3 class="faq-q">Will you pressure me to buy a roof?</h3>
-          <p class="faq-a">If the potential water damage to your home doesn't make you want a roof, then I definitely can't — and I won't waste your time trying to convince you otherwise. It's your house and your investment. I can give you the facts to make the decision, but I can't make it for you.</p>
+          <p class="faq-a">No — pressure isn't our style. We don't see the point in pressuring someone to buy a necessity. No one pressures you to buy food or water, and the same logic should apply to a roof. If you actually need a roof, why would I have to convince you of that? If the reality of severe water damage hurting the biggest investment of your life doesn't make you want to get a new roof, I definitely won't be able to. As much as I'd love to say I'm a great salesman who can work a Jedi mind trick on you — that's simply not true. I'm a car guy and an outdoors guy who works in roofing. At the end of the day, it's your house and your investment. I can present you with the facts, and I'll even tell you to get a second or third opinion if you don't like my verdict. But I can't make the decision for you, and I won't waste your time or energy trying to convince you of something you've already decided against.</p>
         </div>
 
         <div class="faq-item">
-          <h3 class="faq-q">What materials do you use and what is your quality standard?</h3>
-          <p class="faq-a">Every roof we install is built with materials rated to withstand the conditions North Texas actually delivers — not the minimum required to pass inspection. We don't cut corners on what goes above your head. We use architectural shingles rated for impact, synthetic underlayment, ice and water shield at all vulnerable points, proper drip edge and flashing sealed to code, and ridge cap shingles — not shortcuts. We typically recommend Atlas or Malarkey for their build quality, strength, and broad color selection. If you have something else in mind, let us know and we'll walk you through your options.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-q">How do I know I'm not being ripped off or tricked?</h3>
-          <p class="faq-a">We can document the entire process with photos for you.</p>
+          <h3 class="faq-q">What's your quality standard?</h3>
+          <p class="faq-a">Every roof we install is built with materials rated to withstand the conditions North Texas actually delivers — not the minimum required to pass inspection. We don't cut corners on what goes above your head. We offer architectural shingles rated for impact at minimum grade 3, with grade 4 available for maximum hail protection. We use quality underlayment to shield from ice and water at all vulnerable points, and proper drip edge and flashing sealed to code. For shingles, we typically recommend Atlas or Malarkey for their build quality, strength, and broad color selection. If you have something else in mind, let us know and we'll walk you through your options.<br><br>During the roof install, we document the entire process for you. We'll show you everything that comes off your roof — especially the felt, as that is the most important part. Without pulling the felt up, the water damage on the decking underneath can never be seen or inspected, and that's the most important step on any roof. Once you've seen what came off, we'll walk you through what's going back on. If you have a question or concern at any point in the process, say something — it's your home, and you're entitled to peace of mind. Even if you'd like to pull up a lawn chair and watch the whole thing, you're more than welcome — though I wouldn't recommend it. The AC inside is a lot more comfortable.</p>
         </div>
 
       </div>
@@ -922,8 +1016,8 @@
   <div class="cta-schedule-label" style="color:var(--white);">Schedule your free roof inspection</div>
   <p style="color:rgba(247,245,240,0.5); font-size:15px; margin-top:6px;">No obligation. No pressure. Just the facts about what's above your head.</p>
   <div style="display:flex; flex-direction:column; gap:10px; align-items:center; margin-top:24px;">
-    <a href="tel:4698549662" class="btn-primary" style="min-width:340px; text-align:center;">Text or call (469) 854-9662</a>
-    <a href="mailto:noahwomack@texasroofintelligence.com" class="btn-primary" style="min-width:340px; text-align:center;">Email me at<br class="mobile-br"> noahwomack@texasroofintelligence.com</a>
+    <a href="tel:4698549662" class="btn-primary" style="min-width:340px; text-align:center;">Text or call (469) 854-9662 — click here</a>
+    <a href="mailto:noahwomack@texasroofintelligence.com" class="btn-primary" style="min-width:340px; text-align:center;">Email me at<br class="mobile-br"> noahwomack@texasroofintelligence.com<br>Click here</a>
   </div>
 </section>
 
@@ -935,9 +1029,8 @@
 
 <!-- MOBILE BOTTOM NAV -->
 <div class="mobile-bottom-nav">
-  <a href="#contact">Contact Us</a>
-  <a href="tel:4698549662">Free Roof Inspection</a>
-  <a href="#report">Free Roof Report</a>
+  <a href="#contact">To contact us click here</a>
+  <a href="tel:4698549662">To schedule your free roof inspection and report click here</a>
 </div>
 
 </body>
